@@ -20,7 +20,7 @@ async function getPokemonData(pokemonList: any[]) {
 }
 
 async function PokemonPage() {
-    const pokemons = await getPokemonList(151);
+    const pokemons = await getPokemonList(30);
     const pokemonData = await getPokemonData(pokemons);
 
     return (
