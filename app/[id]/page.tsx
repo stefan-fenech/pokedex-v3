@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { TfiArrowRight } from 'react-icons/tfi';
-import { getColorType } from '../../../components/utils/index';
-import PokemonDetailsCard from '../../../components/PokemonDetailsCard';
+import { getColorType } from '../../components/utils/index';
+import PokemonDetailsCard from '../../components/PokemonDetailsCard';
 
 async function getPokemonDetails(id: string) {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -22,7 +22,7 @@ async function PokemonDetails({ params }: any) {
                     <h1 className='w-auto'>{pokemon.name}</h1>
                     <h1 className='w-6'>
                         {pokemon.id < '151' && (
-                            <Link href={`/pokemon/${pokemon.id + 1}`}>
+                            <Link href={`/${pokemon.id + 1}`}>
                                 <TfiArrowRight />
                             </Link>
                         )}
