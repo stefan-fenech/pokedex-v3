@@ -34,7 +34,7 @@ export function getColorType(type: any) {
         return { color: 'bg-[#83C500]', icon: '/type-icons/Pokémon_Bug_Type_Icon.svg' };
     }
     if (type === 'rock') {
-        return { color: 'bg[#C9B787]', icon: '/type-icons/Pokémon_Rock_Type_Icon.svg' };
+        return { color: 'bg-[#C9B787]', icon: '/type-icons/Pokémon_Rock_Type_Icon.svg' };
     }
     if (type === 'ghost') {
         return { color: 'bg-[#4A6AB3]', icon: '/type-icons/Pokémon_Ghost_Type_Icon.svg' };
