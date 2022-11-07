@@ -7,7 +7,7 @@ const nextConfig = {
         protocol: 'http',
         domains: ['raw.githubusercontent.com'],
     },
-    staticPageGenerationTimeout: 1000,
+    staticPageGenerationTimeout: 10000,
 };
 
 module.exports = nextConfig;
