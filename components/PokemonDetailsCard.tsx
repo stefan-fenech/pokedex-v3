@@ -1,11 +1,19 @@
+'use client';
+
 import Image from 'next/image';
-import { getColorType } from '../utils/index';
+import Link from 'next/link';
+import { TfiArrowRight } from 'react-icons/tfi';
+import { getColorType } from './utils/index';
 
 interface PokemonDetailsProps {
-    pokemonData: any;
+    id?: string;
+    name: string;
+    type: string;
+    type2?: string;
+    image: string;
 }
 
-export function PokemonDetails({ pokemonData }: PokemonDetailsProps) {
+export function PokemonDetails({ id, name, type, type2, image }: PokemonDetailsProps) {
     return (
         <>
             <div className='flex justify-center items-center relative top-10 rounded-md'>
@@ -15,7 +23,7 @@ export function PokemonDetails({ pokemonData }: PokemonDetailsProps) {
                 <div className='mt-4'>
                     <div className='flex justify-center'>
                         <p className={`${getColorType(type)} mr-2 px-2 rounded-md border-2 border-white capitalize`}>{type}</p>
-                        <p className={`${getColorType(type2)} mr-2 px-2 rounded-md border-2 border-white capitalize`}>{type2}</p>
+                        {type2 && <p className={`${getColorType(type2)} mr-2 px-2 rounded-md border-2 border-white capitalize`}>{type2}</p>}
                     </div>
                 </div>
             </div>

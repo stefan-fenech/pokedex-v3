@@ -1,5 +1,7 @@
-import Image from 'next/image';
-import { getColorType } from '../../../utils/index';
+import Link from 'next/link';
+import { TfiArrowRight } from 'react-icons/tfi';
+import { getColorType } from '../../../components/utils/index';
+import PokemonDetailsCard from '../../../components/PokemonDetailsCard';
 
 async function getPokemonDetails(id: string) {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -7,22 +9,26 @@ async function getPokemonDetails(id: string) {
     return data;
 }
 
-export default async function PokemonDetails({ params }: any) {
+async function PokemonDetails({ params }: any) {
     const pokemon = await getPokemonDetails(params.id);
+    const type = pokemon.types[0].type.name;
 
     return (
-        <div className={`${getColorType(pokemon.types[0].type.name)} h-screen`}>
-            <div className='flex justify-center items-center relative top-10 rounded-md'>
-                <Image src={pokemon.sprites.other.home.front_default} alt={pokemon.name} width='180' height='180' />
-            </div>
-            <div className='flex flex-col bg-white m-4 rounded-md p-4'>
-                <div className='mt-4'>
-                    <div className='flex justify-center'>
-                        <p className={`${getColorType(pokemon.types[0].type.name)} mr-2 px-2 rounded-md border-2 border-white capitalize`}>{pokemon.types[0]?.type.name}</p>
-                        {pokemon.types.length > 1 && <p className={`${getColorType(pokemon.types[1]?.type.name)} mr-2 px-2 rounded-md border-2 border-white capitalize`}>{pokemon.types[1]?.type.name}</p>}
-                    </div>
+        <div className={`${getColorType(type)} h-screen`}>
+            <div className='flex flex-row justify-center'>
+                <div className='flex justify-between mt-4 m-2 w-full capitalize text-xl text-gray-700 items-center'>
+                    <h1 className='w-6'>#{`${pokemon.id}`.padStart(3, '0')}</h1>
+                    <h1 className='w-auto'>{pokemon.name}</h1>
+                    <h1 className='w-6'>
+                        <Link href={`/pokemon/${pokemon.id + 1}`}>
+                            <TfiArrowRight />
+                        </Link>
+                    </h1>
                 </div>
             </div>
+            <PokemonDetailsCard name={pokemon.name} id={`${pokemon.id}`.padStart(3, '0')} image={pokemon.sprites.other.home.front_default} type={pokemon.types[0].type.name} type2={pokemon.types[1]?.type.name} />
         </div>
     );
 }
+
+export default PokemonDetails;

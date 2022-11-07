@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getColorType } from '../utils/index';
+import { getColorType } from './utils/index';
 
 interface PokemonCardProps {
     id: string;
