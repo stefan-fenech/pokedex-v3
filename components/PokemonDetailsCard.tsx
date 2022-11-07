@@ -1,8 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
-import { TfiArrowRight } from 'react-icons/tfi';
 import { getColorType } from './utils/index';
 
 interface PokemonDetailsProps {
@@ -14,6 +12,9 @@ interface PokemonDetailsProps {
 }
 
 export function PokemonDetails({ id, name, type, type2, image }: PokemonDetailsProps) {
+    const typeColorOne = getColorType(type);
+    const typeColorTwo = getColorType(type2);
+
     return (
         <>
             <div className='flex justify-center items-center relative top-10 rounded-md'>
@@ -21,9 +22,17 @@ export function PokemonDetails({ id, name, type, type2, image }: PokemonDetailsP
             </div>
             <div className='flex flex-col bg-white m-4 rounded-md p-4'>
                 <div className='mt-4'>
-                    <div className='flex justify-center'>
-                        <p className={`${getColorType(type)} mr-2 px-2 rounded-md border-2 border-white capitalize`}>{type}</p>
-                        {type2 && <p className={`${getColorType(type2)} mr-2 px-2 rounded-md border-2 border-white capitalize`}>{type2}</p>}
+                    <div className='flex justify-center text-white'>
+                        <p className={`${typeColorOne?.color} flex flex-row justify-center items-center mr-2 px-2 rounded-md border-2 border-white capitalize`}>
+                            <Image src={typeColorOne?.icon} alt='type' width='32' height='32' />
+                            {type}
+                        </p>
+                        {type2 && (
+                            <p className={`${typeColorTwo?.color} flex flex-row justify-center items-center mr-2 px-2 rounded-md border-2 border-white capitalize`}>
+                                <Image src={typeColorTwo?.icon} alt='type' width='32' height='32' />
+                                {type2}
+                            </p>
+                        )}
                     </div>
                 </div>
             </div>
