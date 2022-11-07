@@ -13,7 +13,7 @@ export function getColorType(type: any) {
         return { color: 'bg-[#3293DD]', icon: '/type-icons/Pokémon_Water_Type_Icon.svg' };
     }
     if (type === 'electric') {
-        return { color: 'bg-#[FBD200]', icon: '/type-icons/Pokémon_Electric_Type_Icon.svg' };
+        return { color: 'bg-[#FBD200]', icon: '/type-icons/Pokémon_Electric_Type_Icon.svg' };
     }
     if (type === 'ice') {
         return { color: 'bg-[#4AD2C1]', icon: '/type-icons/Pokémon_Ice_Type_Icon.svg' };
