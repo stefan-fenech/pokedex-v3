@@ -22,7 +22,7 @@ async function PokemonDetails({ params }: any) {
                     <h1 className='w-auto'>{pokemon.name}</h1>
                     <h1 className='w-6'>
                         {pokemon.id < '151' && (
-                            <Link href={`/${pokemon.id + 1}`}>
+                            <Link href={`/${pokemon.id + 1}`} scroll={false}>
                                 <TfiArrowRight />
                             </Link>
                         )}
