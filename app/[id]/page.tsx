@@ -14,6 +14,16 @@ async function PokemonDetails({ params }: any) {
     const type = pokemon.types[0].type.name;
     const bgColor = getColorType(type);
 
+    const calcWeight = (pokemon: any) => {
+        const weight = pokemon.weight / 10;
+        return weight;
+    };
+
+    const calcHeight = (pokemon: any) => {
+        const height = pokemon.height / 10;
+        return height;
+    };
+
     return (
         <div className={`${bgColor?.color} h-screen`}>
             <div className='flex flex-row justify-center'>
@@ -27,7 +37,17 @@ async function PokemonDetails({ params }: any) {
                     </div>
                 </div>
             </div>
-            <PokemonDetailsCard name={pokemon.name} id={`${pokemon.id}`.padStart(3, '0')} image={pokemon.sprites.other.home.front_default} type={pokemon.types[0].type.name} type2={pokemon.types[1]?.type.name} goBack={`/${pokemon.id - 1}`} goForward={`/${pokemon.id + 1}`} />
+            <PokemonDetailsCard
+                name={pokemon.name}
+                id={`${pokemon.id}`.padStart(3, '0')}
+                image={pokemon.sprites.other.home.front_default}
+                type={pokemon.types[0].type.name}
+                type2={pokemon.types[1]?.type.name}
+                goBack={`/${pokemon.id - 1}`}
+                goForward={`/${pokemon.id + 1}`}
+                height={calcHeight(pokemon)}
+                weight={calcWeight(pokemon)}
+            />
         </div>
     );
 }

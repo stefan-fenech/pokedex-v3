@@ -11,11 +11,13 @@ interface PokemonDetailsProps {
     type: string;
     type2?: string;
     image: string;
+    height: number;
+    weight: number;
     goBack: string;
     goForward: string;
 }
 
-export function PokemonDetails({ id, name, type, type2, image, goBack, goForward }: PokemonDetailsProps) {
+export function PokemonDetails({ id, name, type, type2, image, height, weight, goBack, goForward }: PokemonDetailsProps) {
     const typeColorOne = getColorType(type);
     const typeColorTwo = getColorType(type2);
 
@@ -47,6 +49,23 @@ export function PokemonDetails({ id, name, type, type2, image, goBack, goForward
                                 {type2}
                             </p>
                         )}
+                    </div>
+                    <div className='flex flex-col justify-center items-center mt-4 w-full'>
+                        <p>{`${height}m`}</p>
+                        <p>{`${weight}kg`}</p>
+                    </div>
+                    <div className='flex flex-row mt-4 w-full justify-between'>
+                        <p>Stat 1</p>
+                        <p>Stat 2</p>
+                        <p>Stat 3</p>
+                    </div>
+                    <div className='flex flex-row mt-4 w-full justify-between'>
+                        <p>Stat 4</p>
+                        <p>Stat 5</p>
+                        <p>Stat 6</p>
+                    </div>
+                    <div className='flex flex-row mt-4 w-full justify-center'>
+                        <h1>Evolution info?</h1>
                     </div>
                 </div>
             </div>
