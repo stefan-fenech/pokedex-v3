@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { TfiArrowRight } from 'react-icons/tfi';
 import { getColorType } from '../../components/utils/index';
 import PokemonDetailsCard from '../../components/PokemonDetailsCard';
+import { IoClose } from 'react-icons/io5';
 
 async function getPokemonDetails(id: string) {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -20,16 +20,14 @@ async function PokemonDetails({ params }: any) {
                 <div className='flex justify-between mt-4 m-2 w-full capitalize text-xl text-gray-700 items-center'>
                     <h1 className='w-6'>#{`${pokemon.id}`.padStart(3, '0')}</h1>
                     <h1 className='w-auto'>{pokemon.name}</h1>
-                    <h1 className='w-6'>
-                        {pokemon.id < '151' && (
-                            <Link href={`/${pokemon.id + 1}`} scroll={false}>
-                                <TfiArrowRight />
-                            </Link>
-                        )}
-                    </h1>
+                    <div className='w-6'>
+                        <Link href={`/`} scroll={false}>
+                            <IoClose />
+                        </Link>
+                    </div>
                 </div>
             </div>
-            <PokemonDetailsCard name={pokemon.name} id={`${pokemon.id}`.padStart(3, '0')} image={pokemon.sprites.other.home.front_default} type={pokemon.types[0].type.name} type2={pokemon.types[1]?.type.name} />
+            <PokemonDetailsCard name={pokemon.name} id={`${pokemon.id}`.padStart(3, '0')} image={pokemon.sprites.other.home.front_default} type={pokemon.types[0].type.name} type2={pokemon.types[1]?.type.name} goBack={`/${pokemon.id - 1}`} goForward={`/${pokemon.id + 1}`} />
         </div>
     );
 }

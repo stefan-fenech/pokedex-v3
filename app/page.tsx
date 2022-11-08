@@ -20,11 +20,11 @@ async function getPokemonData(pokemonList: any[]) {
 }
 
 async function PokemonPage() {
-    const pokemons = await getPokemonList(15);
+    const pokemons = await getPokemonList(151);
     const pokemonData = await getPokemonData(pokemons);
 
     return (
-        <div className='flex flex-col justify-center'>
+        <div className='flex flex-col justify-center mt-4'>
             {pokemonData.map((pokemon: any) => (
                 <div key={pokemon.id} className='p-1 m-auto'>
                     <Link href={`/${pokemon.id}`} scroll={false}>

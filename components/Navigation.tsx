@@ -4,13 +4,19 @@ import Link from 'next/link';
 
 export default function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
+    const [clicked, setClicked] = useState('');
 
     const clickHandler = () => {
         if (!isOpen) {
             setIsOpen(true);
+            setClicked('transition all');
         } else {
             setIsOpen(false);
         }
+    };
+
+    const click = () => {
+        setClicked('transition all');
     };
 
     return (
@@ -29,7 +35,7 @@ export default function Navigation() {
                 </div>
             </div>
             {isOpen && (
-                <div className='transition-all bg-red-500 h-72 absolute w-2/3 z-20 rounded-r-md'>
+                <div className={`${clicked} bg-red-500 h-72 absolute w-2/3 z-20 rounded-r-md`}>
                     <button>Click me!</button>
                 </div>
             )}

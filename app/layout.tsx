@@ -9,9 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <title>Pokedex</title>
             </head>
             <body>
-                <header>
-                    <Navigation />
-                </header>
+                <header>{/* <Navigation /> */}</header>
                 {children}
             </body>
         </html>
