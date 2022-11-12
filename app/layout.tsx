@@ -1,5 +1,5 @@
 import './globals.css';
-import Navigation from '../components/Navigation';
+import { ChakraProvider } from '@chakra-ui/react';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
@@ -8,10 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <meta name='viewport' content='width=device-width, initial-scale=1' />
                 <title>Pokedex</title>
             </head>
-            <body>
-                <header>{/* <Navigation /> */}</header>
-                {children}
-            </body>
+            <body className='bg-gray-800'>{children}</body>
         </html>
     );
 }

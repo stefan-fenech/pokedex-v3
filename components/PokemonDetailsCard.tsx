@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { getColorType } from './utils/index';
 import Link from 'next/link';
 import { IoChevronForward, IoChevronBack } from 'react-icons/io5';
+import { GiBodyHeight, GiWeight } from 'react-icons/gi';
+import Stats from '../components/Stats';
 
 interface PokemonDetailsProps {
     id?: string;
@@ -15,11 +17,14 @@ interface PokemonDetailsProps {
     weight: number;
     goBack: string;
     goForward: string;
+    stats: any;
 }
 
-export function PokemonDetails({ id, name, type, type2, image, height, weight, goBack, goForward }: PokemonDetailsProps) {
+export function PokemonDetails({ id, name, type, type2, image, height, weight, goBack, goForward, stats }: PokemonDetailsProps) {
     const typeColorOne = getColorType(type);
     const typeColorTwo = getColorType(type2);
+
+    console.log(stats);
 
     return (
         <>
@@ -50,19 +55,21 @@ export function PokemonDetails({ id, name, type, type2, image, height, weight, g
                             </p>
                         )}
                     </div>
-                    <div className='flex flex-col justify-center items-center mt-4 w-full'>
-                        <p>{`${height}m`}</p>
-                        <p>{`${weight}kg`}</p>
+                    <div className='flex justify-center items-center mt-4 w-full gap-3'>
+                        <div className='flex items-center gap-1'>
+                            <GiBodyHeight />
+                            {`${height}m`}
+                        </div>
+                        <p>|</p>
+                        <div className='flex items-center gap-1'>
+                            <GiWeight />
+                            {`${weight}kg`}
+                        </div>
                     </div>
-                    <div className='flex flex-row mt-4 w-full justify-between'>
-                        <p>Stat 1</p>
-                        <p>Stat 2</p>
-                        <p>Stat 3</p>
-                    </div>
-                    <div className='flex flex-row mt-4 w-full justify-between'>
-                        <p>Stat 4</p>
-                        <p>Stat 5</p>
-                        <p>Stat 6</p>
+                    <div className='grid grid-cols-2 grid-rows-3 gap-3'>
+                        {stats.map((stat: any, index: number) => (
+                            <Stats key={index} name={stat.stat.name} value={stat.base_stat} />
+                        ))}
                     </div>
                     <div className='flex flex-row mt-4 w-full justify-center'>
                         <h1>Evolution info?</h1>

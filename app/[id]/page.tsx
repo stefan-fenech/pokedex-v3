@@ -47,6 +47,7 @@ async function PokemonDetails({ params }: any) {
                 goForward={`/${pokemon.id + 1}`}
                 height={calcHeight(pokemon)}
                 weight={calcWeight(pokemon)}
+                stats={pokemon.stats}
             />
         </div>
     );
