@@ -66,7 +66,7 @@ export function PokemonDetails({ id, name, type, type2, image, height, weight, g
                             {`${weight}kg`}
                         </div>
                     </div>
-                    <div className='grid grid-cols-2 grid-rows-3 gap-3'>
+                    <div className='grid grid-cols-2 grid-rows-3 gap-3 mt-4'>
                         {stats.map((stat: any, index: number) => (
                             <Stats key={index} name={stat.stat.name} value={stat.base_stat} />
                         ))}
