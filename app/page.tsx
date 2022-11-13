@@ -27,7 +27,7 @@ async function PokemonPage() {
         <div className='flex flex-col justify-center mt-4'>
             {pokemonData.map((pokemon: any) => (
                 <div key={pokemon.id} className='p-1 m-auto'>
-                    <Link href={`/${pokemon.id}`} scroll={false}>
+                    <Link href={`/${pokemon.id}`}>
                         <PokemonCard name={pokemon.name} id={`${pokemon.id}`.padStart(3, '0')} image={pokemon.sprites.other.home.front_default} type={pokemon.types[0].type.name} type2={pokemon.types[1]?.type.name} />
                     </Link>
                 </div>

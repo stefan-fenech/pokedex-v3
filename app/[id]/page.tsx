@@ -29,10 +29,10 @@ async function PokemonDetails({ params }: any) {
             <div className='flex flex-row justify-center'>
                 <div className='flex justify-between mt-4 m-2 w-full capitalize text-xl text-gray-700 items-center'>
                     <h1 className='w-6'>#{`${pokemon.id}`.padStart(3, '0')}</h1>
-                    <h1 className='w-auto'>{pokemon.name}</h1>
+                    <h1 className='w-auto uppercase'>{pokemon.name}</h1>
                     <div className='w-6'>
-                        <Link href={`/`} scroll={false}>
-                            <IoClose />
+                        <Link href={`/`}>
+                            <IoClose size={25} />
                         </Link>
                     </div>
                 </div>

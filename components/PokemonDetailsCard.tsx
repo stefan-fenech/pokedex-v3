@@ -24,8 +24,6 @@ export function PokemonDetails({ id, name, type, type2, image, height, weight, g
     const typeColorOne = getColorType(type);
     const typeColorTwo = getColorType(type2);
 
-    console.log(stats);
-
     return (
         <>
             <div className='flex justify-center items-center relative top-12 rounded-md w-1/2 m-auto'>
@@ -34,11 +32,11 @@ export function PokemonDetails({ id, name, type, type2, image, height, weight, g
             <div className='flex flex-col bg-white m-4 rounded-md p-4'>
                 <div className='flex flex-row justify-between w-full'>
                     <Link href={goBack} scroll={false}>
-                        <IoChevronBack />
+                        <IoChevronBack size={25} />
                     </Link>
                     {id! < '151' && (
                         <Link href={goForward} scroll={false}>
-                            <IoChevronForward />
+                            <IoChevronForward size={25} />
                         </Link>
                     )}
                 </div>
